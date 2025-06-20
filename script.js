@@ -4,7 +4,6 @@ window.onload = function () {
   const resultDiv = document.getElementById("result");
   const swapBtn = document.getElementById("swapBtn");
 
-  // Fetch all available currencies
   fetch("https://api.exchangerate-api.com/v4/latest/USD")
     .then(res => res.json())
     .then(data => {
@@ -22,15 +21,13 @@ window.onload = function () {
       });
     });
 
-  // Swap selected currencies
-  swapBtn.addEventListener("click", () => {
+   swapBtn.addEventListener("click", () => {
     const temp = fromCurrency.value;
     fromCurrency.value = toCurrency.value;
     toCurrency.value = temp;
     convertCurrency();
   });
 
-  // Currency conversion function
   window.convertCurrency = function () {
     const amount = document.getElementById("amount").value;
     const from = fromCurrency.value;
